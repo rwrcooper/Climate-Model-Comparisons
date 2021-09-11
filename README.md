@@ -30,7 +30,7 @@ Here is a short summary of results. We will look at the East Asia domain (EAS-44
 
 ### Slope plots
 
-Here 
+Here ...
 
 ![tasmax_yearmax_slope](https://user-images.githubusercontent.com/48542067/132932534-7c76211c-7b65-490a-a8d5-e5eb063782e7.png)
 
@@ -40,4 +40,5 @@ Here
 
 ### Heatmaps and table of values
 
-make it only 4 models
+![EAS-44_tasmax_yearmax_slopes_heatmap](https://user-images.githubusercontent.com/48542067/132933182-d1bc45d1-9ce3-44c3-9797-65372326efb8.png)
+

@@ -36,6 +36,8 @@ For the slope plot a linear model was produced for each grid cell for the values
 
 ### Timeseries plots
 
+For the timeseries plots, for each model I have extracted a small region around 7 large cities within the domain. I have then created a timeseries of the annual maximum heat value and plotted them along with the spatial mean of the whole domain. This can be seen in the plot below. In each plot we compare the timeseries for each city and model.
+
 ![tasmax_yearmax_timeseries](https://user-images.githubusercontent.com/48542067/132932548-0ea96b42-22c6-4e73-9f65-78ebf55b2d8d.png)
 
 ### Heatmaps and table of values

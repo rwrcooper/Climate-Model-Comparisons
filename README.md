@@ -26,11 +26,11 @@ value of the slope for each grid-cell is presented on the plot using colours).
 
 The analysis was done for all available models for the domains: Africa, Australia, Central America, East Asia, Europe, North America, South America, and for all hazards listed above.
 
-Here is a short summary of results. We will look at the East Asia domain (EAS-44) (as there were only 4 model available, some other domains had up to 22) and the hazard extreme heat (tasmax).
+Here is a short summary of results. We will look at the *East Asia* domain (EAS-44) (as there were only 4 model available, some other domains had up to 22) and the hazard *extreme heat* (tasmax).
 
 ### Slope plots
 
-Here ...
+For the slope plot a linear model was produced for each grid cell for the values of annual maximum temperature from years 2000 to 2100. The slope (trend) for each grid-cell is shown for each available model. The same colour scheme is used for each model for comparrison. This is displayed next to a time-mean of the metric for each gridcell over the years 1981 to 2010.
 
 ![tasmax_yearmax_slope](https://user-images.githubusercontent.com/48542067/132932534-7c76211c-7b65-490a-a8d5-e5eb063782e7.png)
 

@@ -4,7 +4,14 @@ File: model_downloader.py
 Author: riley cooper
 Email: rwr.cooper@gmail.com
 Description:
-    Downloads a CORDEX model data from ESGF, and produces a plot.
+    Downloads CORDEX model data sets from ESGF, and saves in organised
+    directories. This downloader checks if files are already downloaded
+    before downloading again. Arguments that must be included:
+    domain: e.g. AUS-44
+    variable: e.g. tasmax
+    time_frequency e.g. day
+    experiment: e.g. rcp85
+    Options for including driving_model (GCM) and rcm_name.
 
 Usage:
     model_downloader -d <domain>... -v <variable>... -t <time_frequency>... -e <experiment>... [-g <driving_model>]...[-r <rcm_name>]...

@@ -4,7 +4,10 @@ File: pre-processor.py
 Author: riley cooper
 Email: rwr.cooper@gmail.com
 Description:
-    Pre-processes CRODEX data to then be used in analyses.
+    Pre-processes CRODEX data to then be used in analyses. Executes the 4 types
+    of pre-processing we need to then produce intercomparrison plots.
+    Evaluation and rcp convert the models to yearly metrics through a yearsum
+    or yearmax depending on relevance to speci hazard.
 
 Usage:
     pre-processor.py evaluation -d <domain> [-v <var_option]

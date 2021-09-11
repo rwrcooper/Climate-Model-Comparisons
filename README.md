@@ -30,17 +30,19 @@ Here is a short summary of results. We will look at the *East Asia* domain (EAS-
 
 ### Slope plots
 
-For the slope plot a linear model was produced for each grid cell for the values of annual maximum temperature from years 2000 to 2100. The slope (trend) for each grid-cell is shown for each available model. The same colour scheme is used for each model for comparrison. This is displayed next to a time-mean of the metric for each gridcell over the years 1981 to 2010.
+For the slope plot a linear model was produced for each grid cell for the values of annual maximum temperature from years 2000 to 2100. The slope (trend) for each grid-cell is shown for each available model. The same colour scheme is used for each model for comparrison. This is displayed next to a time-mean of the metric for each gridcell over the years 1981 to 2010. The script *slope_plots_cordex.py* was used for to produce the plots for this analysis.
 
 ![tasmax_yearmax_slope](https://user-images.githubusercontent.com/48542067/132932534-7c76211c-7b65-490a-a8d5-e5eb063782e7.png)
 
 ### Timeseries plots
 
-For the timeseries plots, for each model I have extracted a small region around 7 large cities within the domain. I have then created a timeseries of the annual maximum heat value and plotted them along with the spatial mean of the whole domain. This can be seen in the plot below. In each plot we compare the timeseries for each city and model.
+Next, for the timeseries plots, I have extracted a small region around 7 large cities within the domain for each model. I have then created a timeseries of the annual maximum heat value and plotted them along with the spatial mean of the whole domain. This can be seen in the plot below. In each plot we compare the timeseries for each city and model. The script *timeseries_plots_cordex.py* was used for to produce the plots for this analysis.
 
 ![tasmax_yearmax_timeseries](https://user-images.githubusercontent.com/48542067/132932548-0ea96b42-22c6-4e73-9f65-78ebf55b2d8d.png)
 
-### Heatmaps and table of values
+### Heatmaps
+
+Fianlly I have created a heatmap using script ... 
 
 ![EAS-44_tasmax_yearmax_slopes_heatmap](https://user-images.githubusercontent.com/48542067/132933182-d1bc45d1-9ce3-44c3-9797-65372326efb8.png)
 

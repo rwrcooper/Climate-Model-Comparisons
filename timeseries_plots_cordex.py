@@ -194,7 +194,6 @@ def make_plot(domain, data_path, plot_path, colors, var, type):
     title = f"{title} type: {type}."
     fig.suptitle(title, size=22)
 
-    # this is not very general FIX
     fig.legend(loc="lower center", ncol=5)
 
     plt.tight_layout()

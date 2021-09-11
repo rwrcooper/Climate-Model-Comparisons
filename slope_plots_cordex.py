@@ -171,6 +171,8 @@ def plot_model_type(domain, data_sets, cmap, axes, add, var, vmin, vmax, fig,
 
         print("Plot succesful")
 
+        # logic to add colorbar to plot
+
         # TODO: this isn't general
         # this bit of code is not ideal
         if var == "hurs":
@@ -306,7 +308,7 @@ def make_plots_var(domain, var, path, path_var, type):
             slopes[model_name] = data_set
 
             # TIMMEAN
-            # TODO: this and the part above are similar and could be general
+            # this and the part above are similar - could make into function
             path_rcm = f"{path_timmean}/{driving_model}/{rcm}"
 
             files = ds_store_remover(os.listdir(path_rcm))

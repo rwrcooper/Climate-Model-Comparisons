@@ -17,8 +17,8 @@ These files are used to analyse how the climate risk hazards of:
 - flood
 
 behave in different downscaled climate models. The rcp85 scenario is used for
-for all models and models are compared through timeseries plots, heatmaps and
-spatial slope plots (a linear model is calculated for each grid-cell and the
+for all models and models are compared through timeseries plots for selected cities, heatmaps and
+spatial slope plots for the whole domain(a linear model is calculated for each grid-cell and the
 value of the slope for each grid-cell is presented on the plot using colours).
 
 
@@ -29,6 +29,8 @@ The analysis was done for all available models for the domains: Africa, Australi
 Here is a short summary of results. We will look at the East Asia domain (EAS-44) (as there were only 4 model available, some other domains had up to 22) and the hazard extreme heat (tasmax).
 
 ### Slope plots
+
+Here 
 
 ![tasmax_yearmax_slope](https://user-images.githubusercontent.com/48542067/132932534-7c76211c-7b65-490a-a8d5-e5eb063782e7.png)
 

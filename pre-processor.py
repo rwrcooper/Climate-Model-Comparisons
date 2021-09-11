@@ -4,7 +4,7 @@ File: pre-processor.py
 Author: riley cooper
 Email: rwr.cooper@gmail.com
 Description:
-    Pre-processes cordex data to then be used in analyses.
+    Pre-processes CRODEX data to then be used in analyses.
 
 Usage:
     pre-processor.py evaluation -d <domain> [-v <var_option]

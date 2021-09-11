@@ -3,7 +3,9 @@ File: table_maker.py
 Author: riley cooper
 Email: rwr.cooper@gmail.com
 Description:
-    Creates tables of meta data and facet counts from a CORDEX seacrh from ESGF
+    Creates tables of meta data and facet counts from a search of ESGF for all
+    available CORDEX data. This can be used to get an idea of what data is
+    available before performing the multi-model analyses.
 
 Usage:
     table_maker update-search

@@ -215,9 +215,6 @@ def make_plot(domain, var_option):
 
     for var in vars:
 
-        # TODO: remove
-        # if var == "hurs" or var == "sfcWindmax":
-        # if var == "pr":
         path_var = f"{path_domain}/{var}"
 
         make_plots_var(domain, var, path, path_var, type="yearmax")
@@ -251,41 +248,8 @@ def make_plots_var(domain, var, path, path_var, type):
         path_driving_model = f"{path_slope}/{driving_model}"
         rcms = ds_store_remover(os.listdir(path_driving_model))
 
-        # remove some for EUR-44 drought
-        if domain == "EUR-44":
-            if var == "pr":
-                if driving_model == "CNRM-CERFACS-CNRM-CM5":
-                    rcms = [rcm for rcm in rcms if rcm != "ALADIN53"]
-                    rcms = [rcm for rcm in rcms if rcm != "ALARO-0"]
-
-        if domain == "CAM-44":
-            # if var == "pr":
-            rcms = [rcm for rcm in rcms if rcm != "RegCM4-3"]
-
-        # test thing
-        if domain == "AFR-44":
-            if driving_model == "MPI-M-MPI-ESM-MR" or driving_model == "MOHC-HadGEM2-ES":
-                rcms = [rcm for rcm in rcms if rcm != "RegCM4-3"]
-
-        if domain == "EAS-44":
-            if driving_model == "ICHEC-EC-EARTH":
-                rcms = [rcm for rcm in rcms if rcm != "HIRHAM5"]
-
-        # TODO: fix the SAM-44 projection problem
-        if domain == "SAM-44":
-            if "RegCM4-3" in rcms:
-                rcms = [rcm for rcm in rcms if rcm != "RegCM4-3"]
-
-            # if driving_model == "MPI-M-MPI-ESM-LR":
-            #     if "RCA4" in rcms:
-            #         rcms = [rcm for rcm in rcms if rcm != "RCA4"]
-            # if driving_model == "CCCma-CanESM2":
-            #     if "RCA4" in rcms:
-            #         rcms = [rcm for rcm in rcms if rcm != "RCA4"]
-
         for rcm in rcms:
             # TODO: could make the following into a function for reuse
-
             # SLOPE
             path_rcm = f"{path_driving_model}/{rcm}"
             model_name = f"{driving_model}_{rcm}"
@@ -306,7 +270,7 @@ def make_plots_var(domain, var, path, path_var, type):
                     elif model_name == "MPI-M-MPI-ESM-LR_CCLM4-8-17-CLM3-5":
                         data_set[var] = data_set[var]/24
 
-            # TODO: here would be the place to scale data if wanted
+            # here would be the place to scale data if wanted
 
             # testing
             print("\n")
@@ -322,7 +286,7 @@ def make_plots_var(domain, var, path, path_var, type):
             if "rlon" in data_set.coords:
                 data_set.coords["rlon"] = data_set.coords["rlon"] % 360
 
-            # this might need to be edited on the fly
+            # this might need to be edited on the fly to make more defined
             if var == "sfcWindmax":
                 slopes_min.append(data_set[var].quantile(0.1))
                 slopes_max.append(data_set[var].quantile(0.9))
@@ -397,7 +361,7 @@ def make_plots_var(domain, var, path, path_var, type):
              pole_longitude=-56.06,
              pole_latitude=70.6,
              central_rotated_longitude=0)
-        # fix from Ned, can be coded in better than what I've done
+        # to fix the projection
         rp = rotated_pole_map
         map_crs = ccrs.RotatedPole(
             rp.proj4_params['lon_0'] - 180,
@@ -482,7 +446,7 @@ def make_plots_var(domain, var, path, path_var, type):
 
     fig.set_figheight(wid * y2x_ratio)
 
-    # title = f"Slope of trend and bias estimate for {var} metric. EDIT THIS."
+    # title = f"Slope of trend and bias estimate for {var} metric."
     # fig.suptitle(title, size=30)
 
     save_path = f"{path}/plots/{domain}/slope"

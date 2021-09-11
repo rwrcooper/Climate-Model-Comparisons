@@ -4,8 +4,9 @@ File: easy_model_downloader.py
 Author: riley cooper
 Email: rwr.cooper@gmail.com
 Description:
-    Easy downloader: downloads all needed data for a given domain, variable,
-    time_frequecy triplet.
+    Easy downloader: downloads all 'needed' data for a given domain, variable,
+    time_frequecy triplet. That is, historical data, rcp85 scenario and
+    evaluation data, using the model_downloader.py script.
 
 Usage:
     easy_model_downloader.py -d <domain>... -v <variable>... -t <time_frequency>

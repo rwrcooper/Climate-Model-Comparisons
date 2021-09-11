@@ -28,83 +28,15 @@ from docopt import docopt
 import xarray as xr
 import os
 from ds_store_remover import ds_store_remover
+import json
 
 
 path = "data-link/cordex-data/mon"
 
 
-cities_lat_lon = {
-    "AUS-44": {
-        "wr": 0,  # Whole Region
-        "syd": {"lat": -33.8688, "lon": 151.2093},  # Sydney
-        "ali": {"lat": -23.6980, "lon": 133.8807},  # Adelaide
-        "per": {"lat": -31.9505, "lon": 115.8605},  # Perth
-        "mel": {"lat": -37.8136, "lon": 144.9631},  # Melbourne
-        "auc": {"lat": -36.8483, "lon": 174.7625},  # Aucland
-    },
-    "EUR-44": {
-        "wr": 0,  # Whole Region
-        "ldn": {"lat": 51.5074, "lon": -0.1278},  # London
-        "lis": {"lat": 38.7223, "lon": -9.1393},  # Lisbon
-        "mad": {"lat": 40.4168, "lon": -3.7038},  # Madrid
-        "rom": {"lat": 41.9028, "lon": 12.4964},  # Rome
-        "osl": {"lat": 59.9139, "lon": 10.7522},  # Oslo
-        "bud": {"lat": 47.4979, "lon": 19.0402},  # Budapest
-        "ber": {"lat": 52.5200, "lon": 13.4050},  # Berlin
-    },
-    "AFR-44": {
-        "wr": 0,  # Whole Region
-        "cai": {"lat": 30.0444, "lon": 31.2357},  # Cairo
-        "mar": {"lat": 31.6295, "lon": -7.9811},  # Marrakesh
-        "cap": {"lat": -33.9249, "lon": 18.4241},  # Capetown
-        "lus": {"lat": -15.3875, "lon": 28.3228},  # Lusaka
-        "ant": {"lat": -18.8792, "lon": 47.5079},  # Antananarivo
-        "aga": {"lat": 16.9742, "lon": 7.9865},  # Agadez
-        "abu": {"lat": 24.4539, "lon": 54.3773},  # Abu Dhabi
-    },
-    "SAM-44": {
-        "wr": 0,  # Whole Region
-        "bue": {"lat": -34.6037, "lon": -58.3816},  # Buenos Aires
-        "rio": {"lat": -22.9068, "lon": -43.1729},  # Rio de Janeiro
-        "san": {"lat": -33.4489, "lon": -70.6693},  # Santiago
-        "lim": {"lat": -12.0464, "lon": -77.0428},  # Lima
-        "cru": {"lat": -17.8146, "lon": -63.1561},  # Santa Cruz de la Sierra
-        "bog": {"lat": 4.7110, "lon": -74.0721},  # Bogota
-        "car": {"lat": 10.4806, "lon": -66.9036},  # Caracas
-    },
-    "EAS-44": {
-        "wr": 0,  # Whole Region
-        "tok": {"lat": 35.6762, "lon": 139.6503},  # Tokyo
-        "bei": {"lat": 39.9042, "lon": 116.4074},  # Beijing
-        "ban": {"lat": 13.7563, "lon": 100.5018},  # Bangkok
-        "kat": {"lat": 27.7172, "lon": 85.3240},  # Kathmandu
-        "han": {"lat": 21.0278, "lon": 105.8342},  # Hanoi
-        "new": {"lat": 28.6139, "lon": 77.2090},  # New Delhi
-        "man": {"lat": 14.5995, "lon": 120.9842},  # Manila
-    },
-    "NAM-44": {
-        "wr": 0,  # Whole Region
-        "los": {"lat": 34.0522, "lon": -118.2437},  # Los Angeles
-        "new": {"lat": 40.7128, "lon": -74.0060},  # New York
-        "mia": {"lat": 25.7617, "lon": -80.1918},  # Miami
-        "las": {"lat": 36.1699, "lon": -115.1398},  # Las Vegas
-        "van": {"lat": 49.2827, "lon": -123.1207},  # Vancouver
-        "anc": {"lat": 61.2181, "lon": -149.9003},  # Anchorage
-        "hou": {"lat": 29.7604, "lon": -95.3698},  # Houston
-    },
-    "CAM-44": {
-        "wr": 0,  # Whole Region
-        "mex": {"lat": 19.4326, "lon": -99.1332},  # mexico city
-        "kin": {"lat": 18.0179, "lon": -76.8099},  # kingston
-        "hav": {"lat": 23.1136, "lon": -82.3666},  # havana
-        "spr": {"lat": 18.4655, "lon": -66.1057},  # san juan puerto rico
-        "mer": {"lat": 20.9674, "lon": -89.5926},  # merida
-        "mon": {"lat": 25.6866, "lon": -100.3161},  # monterrey
-        "tij": {"lat": 32.5149, "lon": -117.0382},  # tijuana
-        "her": {"lat": 29.0730, "lon": -110.9559},  # hermosillo
-        "gua": {"lat": 20.6597, "lon": -103.3496},  # guadalajara
-    },
-}
+# load cities_lat_lon
+dict = open("cities_lat_lon.json")
+cities_lat_lon = json.load(dict)
 
 
 dist = 1
@@ -303,12 +235,6 @@ def pre_process_timeseries(path, domain, var, cities_lat_lon, experiment):
         rcms = ds_store_remover(
             os.listdir(f"{path}/{experiment}/{driving_model}"))
 
-        # TODO: check if this is needed
-        # remove broken model
-        if domain == "EUR-44":
-            if var == "pr":
-                rcms = [rcm for rcm in rcms if rcm != "WRF331F"]
-
         if experiment == "evaluation":
             rcms = [rcm for rcm in rcms if rcm != "ensmean"]
 
@@ -317,8 +243,6 @@ def pre_process_timeseries(path, domain, var, cities_lat_lon, experiment):
                 f"{path}/timeseries/{driving_model}/{rcm}",
                 exist_ok=True)
 
-            # TODO: check if this is needed
-            # TODO: remove this test
             print("Searching this dir for file name.")
             print(f"{path}/{experiment}/{driving_model}/{rcm}")
             file_name = ds_store_remover(
@@ -386,7 +310,7 @@ def pre_process_city_rcp(domain, var, path, driving_model, rcm, city,
                     (cities_lat_lon[domain][city][
                         "lon"] + dist > data_set.lon),
                     drop=True)
-            # TODO: getting "do not use bare 'except', could be more specific"
+
             except:
                 print(f"Domain: {domain}")
                 print(f"City: {city}")

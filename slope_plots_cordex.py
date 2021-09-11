@@ -171,23 +171,19 @@ def plot_model_type(domain, data_sets, cmap, axes, add, var, vmin, vmax, fig,
 
         print("Plot succesful")
 
-        # logic to add colorbar to plot
-
-        # TODO: this isn't general
-        # this bit of code is not ideal
+        # logic to add colorbar to plot, could be made more general
         if var == "hurs":
-            ii = 1
+            cols = 1
         elif var == "sfcWindmax":
-            ii = 4
-        elif domain == "NAM-44":  # test
-            # if var == "pr":
-            ii = 1
+            cols = 4
+        elif domain == "NAM-44":
+            cols = 1
         elif domain == "EAS-44":
             if var == "pr":
-                ii = 3
+                cols = 3
         else:
-            ii = 4
-        if i == ii:
+            cols = 4
+        if i == cols:
             cbar_ax = fig.add_axes([0.14+add*0.42, 0.08, 0.33, 0.015])
             norm = colors.Normalize(vmin=vmin, vmax=vmax, clip=False)
             mappable = cm.ScalarMappable(norm=norm, cmap=cmap)

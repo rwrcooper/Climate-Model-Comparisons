@@ -13,6 +13,8 @@ Description:
     experiment: e.g. rcp85
     Options for including driving_model (GCM) and rcm_name.
 
+    Saves data to "data-link", this needs to be created first.
+
 Usage:
     model_downloader -d <domain>... -v <variable>... -t <time_frequency>... -e <experiment>... [-g <driving_model>]...[-r <rcm_name>]...
 

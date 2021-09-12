@@ -22,7 +22,7 @@ value of the slope for each grid-cell is presented on the plot using colours).
 
 ## To use:
 
-First run model_downloader.py or easy_model_downloader.py with options and arguments (description in file) to download your chosen climate datasets. Preprocess data sets with ore_processor.py. This file knows the data storage structure I have set up and will preprocess all datasets relevant to the options used. Next we use slope_plots_cordex.py and timeseries_plots_cordex.py to produce the plots to be used for intercomparison analysis between climate datasets. For the heatmap plots, preprocessing and plot producing will be executed using the script trend_value_table.py.
+First run model_downloader.py or easy_model_downloader.py with options and arguments (description in file) to download your chosen climate datasets. Preprocess data sets with pre_processor.py. This file knows the data storage structure I have set up and will preprocess all datasets relevant to the options used. Next we use slope_plots_cordex.py and timeseries_plots_cordex.py to produce the plots to be used for intercomparison analysis between climate datasets. For the heatmap plots, preprocessing and plot producing will be executed using the script trend_value_table.py.
 
 ## Example results
 

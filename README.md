@@ -1,13 +1,19 @@
 # multi-model-analyses
 
+
 Self contained example of climate model downloader, pre-processor and multi-
-model analyses.
+model analyses. The goal here was to develop code to analyse climate hazards 
+in different climate models to identify models that predict the most extreme 
+occurance of particular hazard as well as investigate the spread of predictions 
+between different models.
+
+This code is based off code I developed while working for Climate Risk Pty Ltd.
 
 Files are bash executable, with options.
 
 All files include brief instructions for use.
 
-These files are used to analyse how the climate risk hazards of:
+These files are used to analyse how the climate hazards of:
 
 - extreme heat
 - extreme wind

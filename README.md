@@ -6,8 +6,8 @@ The goal here was to develop code to analyse climate hazards in different climat
 identify models that predict extreme occurance of particular hazard as well as investigate the 
 spread of predictions between different models.
 
-This code is based on a similar project I developed while working for Climate Risk Pty Ltd. All 
-contributions to this portfolio exercise are made by me.
+This code is based on a similar project I developed while working for a former contractor (email
+me for details if needed). All contributions to this portfolio exercise are made by me.
 
 Files are bash executable, with options.
 
